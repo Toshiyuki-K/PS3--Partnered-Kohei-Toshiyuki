@@ -31,20 +31,30 @@ data = pd.DataFrame(np.random.rand(100), columns=['Random Numbers'])
 def preview_data(df):
     # first object printed as head
     head = df.head()
-    # second object printed as histogram with altair 
+    # second object printed as describe for dataframe
+    describe = df.describe()
+    # third object printed as histogram with altair 
     histogram = alt.Chart(df).mark_bar().encode(
         x=alt.X('Random Numbers', bin=True),  
         y='count()'
     )
-    # return as list
-    return [head, histogram]
+    
+    # return three objects as list
+    return [head, describe, histogram]
 
-# 
+# Get the result
 result = preview_data(data)
 
-# Display the first 
+# Display the first object: Head
+print("Head output:")
 print(result[0])
-# Display the histogram
-result[1].display()
+
+# Display the second object: Describe
+print("\nDescribe output:")
+print(result[1])
+
+# Display the third object: Histogram
+print("\nDisplaying histogram:")
+result[2].display()
 
 ```
