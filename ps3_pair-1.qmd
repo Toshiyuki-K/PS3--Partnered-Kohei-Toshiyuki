@@ -19,6 +19,13 @@ include-before-body:
     }
 ---
 
+
+```{python}
+import altair as alt
+alt.renderers.enable("png")
+```
+
+
 ```{python}
 
 import pandas as pd
